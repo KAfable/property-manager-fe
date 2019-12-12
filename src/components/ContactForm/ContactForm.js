@@ -156,7 +156,7 @@ export default function ContactForm() {
           <DialogTitle disableTypography id="alert-dialog-slide-title">
             <h5>Form Submitted!</h5>
           </DialogTitle>
-          <ThankYou viewBox="0 0 1035 627" width={500} />
+          <ThankYou width={500} />
           <DialogContent>
             <Typography align="center">Thank you for your feedback!</Typography>
           </DialogContent>

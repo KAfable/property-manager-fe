@@ -2,7 +2,7 @@
 import React from 'react';
 
 const ThankYou = props => (
-  <svg fill="none" {...props}>
+  <svg fill="none" {...props} viewBox="0 0 1035 627">
     <g clipPath="url(#prefix__clip0)">
       <path fill="#2D3B4F" d="M0 0h1035.48v627.636H0z" />
       <path
