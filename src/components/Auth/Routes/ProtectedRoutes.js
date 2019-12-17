@@ -4,20 +4,22 @@ import Dashboard from '../../../views/dashboard/Dashboard';
 import Properties from '../../../views/dashboard/properties/Properties';
 import Profile from '../../../views/dashboard/profile/Profile';
 import Overview from '../../../views/dashboard/overview/Overview';
+import CreateProperty from '../../../views/dashboard/properties/CreateProperty';
+import Property from '../../../views/dashboard/properties/Property';
 
 function ProtectedRoutes() {
   function getToken() {
     try {
-      let token = localStorage.getItem('token');
+      const token = localStorage.getItem('token');
       return token;
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   }
   const token = getToken();
 
   if (!token) {
-    return <Redirect to="/home" />;
+    return <Redirect to="/" noThrow />;
   }
   return (
     <Router>
@@ -25,6 +27,8 @@ function ProtectedRoutes() {
         <Overview path="/" />
         <Profile path="profile" />
         <Properties path="properties" />
+        <Property path="properties/:id" />
+        <CreateProperty path="properties/add" />
       </Dashboard>
     </Router>
   );
