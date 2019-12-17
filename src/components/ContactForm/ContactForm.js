@@ -16,7 +16,7 @@ import {
 } from '@material-ui/core';
 import FormErrors from '../../helpers/FormErrors';
 import { I } from '../UI';
-import ThankYou from '../../assets/svg/ThankYou';
+import ThankYou from '../SVG/ThankYou';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()

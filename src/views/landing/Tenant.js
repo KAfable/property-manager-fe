@@ -1,50 +1,18 @@
 import React from 'react';
-import calendarImage from '../../assets/img/maleAvi.png';
+import Header from '../../components/Landing/Header';
+import SubBlock from '../../components/Landing/SubBlock';
 
 const Tenant = () => {
   return (
     <div className="renterView">
       <div className="renterBlock">
         <div className="renterHeader">
-          <div className="headerBlock">
-            <h3>Lorem Ipsum</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectepor pharetra. Phasellus
-              gravida, ante eu pretium placerat, nunc libero euismod lectus, nec
-              mollis odio eros vitae lorem. Nulla sed luctus tellus. Nullam t
-              risus.
-            </p>
-          </div>
-          <img src={calendarImage} alt="calendar" width="50px" />
+          <Header />
         </div>
         <div className="renterSubs">
-          <div className="subBlock">
-            <h3>Lorem Ipsum</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectepor pharetra. Phasellus
-              gravida, ante eu pretium placerat, nunc libero euismod lectus, nec
-              mollis odio eros vitae lorem. Nulla sed luctus tellus. Nullam t
-              risus.
-            </p>
-          </div>
-          <div className="subBlock">
-            <h3>Lorem Ipsum</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectepor pharetra. Phasellus
-              gravida, ante eu pretium placerat, nunc libero euismod lectus, nec
-              mollis odio eros vitae lorem. Nulla sed luctus tellus. Nullam t
-              risus.
-            </p>
-          </div>
-          <div className="subBlock">
-            <h3>Lorem Ipsum</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectepor pharetra. Phasellus
-              gravida, ante eu pretium placerat, nunc libero euismod lectus, nec
-              mollis odio eros vitae lorem. Nulla sed luctus tellus. Nullam t
-              risus.
-            </p>
-          </div>
+          <SubBlock />
+          <SubBlock />
+          <SubBlock />
         </div>
       </div>
     </div>
