@@ -20,11 +20,7 @@ export default function Contact() {
             <h2>PropMan</h2>
             <div className="contactType">
               <MdEmail className="icon" />
-              <p>acme.info@2mail.com</p>
-            </div>
-            <div className="contactType">
-              <MdPhone className="icon" />
-              <p>+0 000-000-0000</p>
+              <p>admin@propman.com</p>
             </div>
             <h3>Follow Us</h3>
             <div className="contactIcons">
