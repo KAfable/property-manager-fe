@@ -3,6 +3,7 @@ import React from 'react';
 function Icon() {
   return (
     <svg
+      data-testid="svg-element"
       xmlns="http://www.w3.org/2000/svg"
       width="1032"
       height="741.753"

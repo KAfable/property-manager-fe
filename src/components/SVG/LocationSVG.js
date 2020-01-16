@@ -3,6 +3,7 @@ import React from 'react';
 function Location() {
   return (
     <svg
+      data-testid="svg-element"
       xmlns="http://www.w3.org/2000/svg"
       data-name="Layer 1"
       viewBox="0 0 923.8 753.71"

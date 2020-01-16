@@ -3,6 +3,7 @@ import React from 'react';
 function ErrorSVG() {
   return (
     <svg
+      data-testid="svg-element"
       xmlns="http://www.w3.org/2000/svg"
       width="1080.049"
       height="748.002"

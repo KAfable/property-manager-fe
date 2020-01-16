@@ -3,6 +3,7 @@ import React from 'react';
 function UnderConstructionSVG() {
   return (
     <svg
+      data-testid="svg-element"
       xmlns="http://www.w3.org/2000/svg"
       width="1177.82"
       height="724.47"

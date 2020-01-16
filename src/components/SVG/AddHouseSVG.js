@@ -3,6 +3,7 @@ import React from 'react';
 function AddHouse() {
   return (
     <svg
+      data-testid="svg-element"
       xmlns="http://www.w3.org/2000/svg"
       data-name="Layer 1"
       viewBox="0 0 1137 531.168"
