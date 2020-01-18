@@ -58,6 +58,23 @@ export const EDIT_PROPERTY_START = 'EDIT_PROPERTY_START';
 export const EDIT_PROPERTY_SUCCESS = 'EDIT_PROPERTY_SUCCESS';
 export const EDIT_PROPERTY_FAIL = 'EDIT_PROPERTY_FAIL';
 // ------------------------------------------------|
+<<<<<<< HEAD
+=======
+// TENANT TYPES ===================================|
+// ================================================|
+export const GET_TENANTS_START = 'GET_TENANTS_START';
+export const GET_TENANTS_SUCCESS = 'GET_TENANTS_SUCCESS';
+export const GET_TENANTS_FAIL = 'GET_TENANTS_FAIL';
+// ------------------------------------------------|
+export const GET_TENANT_ID_START = 'GET_TENANT_ID_START';
+export const GET_TENANT_ID_SUCCESS = 'GET_TENANT_ID_SUCCESS';
+export const GET_TENANT_ID_FAIL = 'GET_TENANT_ID_FAIL';
+// ------------------------------------------------|
+export const EDIT_TENANT_START = 'EDIT_TENANT_START';
+export const EDIT_TENANT_SUCCESS = 'EDIT_TENANT_SUCCESS';
+export const EDIT_TENANT_FAIL = 'EDIT_TENANT_FAIL';
+// ------------------------------------------------|
+>>>>>>> 2307b2c89fba97d409e41f887c37b8c32ff46d68
 export const ADD_TENANT_START = 'ADD_TENANT_START';
 export const ADD_TENANT_SUCCESS = 'ADD_TENANT_SUCCESS';
 export const ADD_TENANT_FAIL = 'ADD_TENANT_FAIL';
@@ -88,12 +105,22 @@ export const UPDATE_WORK_ORDER_SUCCESS = 'UPDATE_WORK_ORDER_SUCCESS';
 // AUTH CREATORS ==================================|
 // ================================================|
 // LOGIN / SIGNUP ---------------------------------|
-export const auth = url => (email, password) => async dispatch => {
+export const auth = url => (email, password, type) => async dispatch => {
   dispatch({ type: AUTH_REQUEST_START });
 >>>>>>> 9cf2a3e08699092acf8c5eeef10809b9445a9561
 
   try {
+<<<<<<< HEAD
     const res = await axiosAuth().post(`${baseUrl}properties`, property);
+=======
+    const res = await axios.post(`${baseUrl}${url}`, {
+      email,
+      password,
+      type
+    });
+
+    localStorage.setItem('token', res.data.token);
+>>>>>>> 2307b2c89fba97d409e41f887c37b8c32ff46d68
 
     dispatch({
       type: ADD_PROPERTY_SUCCESS,
@@ -176,6 +203,62 @@ export const editProperty = (id, property) => {
   };
 };
 // ------------------------------------------------|
+<<<<<<< HEAD
+=======
+// TENANT CREATORS ================================|
+// ================================================|
+// GET TENANTS ------------------------------------|
+export const getTenants = () => {
+  return async dispatch => {
+    dispatch({ type: GET_TENANTS_START });
+
+    try {
+      const res = await axiosAuth().get(`${baseUrl}/tenants`);
+
+      dispatch({ type: GET_TENANTS_SUCCESS, payload: res.data });
+    } catch (err) {
+      dispatch({ type: GET_TENANTS_FAIL, payload: { errMsg: err.message } });
+    }
+  };
+};
+// ------------------------------------------------|
+// GET TENANT -----------------------------------|
+// Takes in the tenant id to pass in as a url
+// parameter for endpoint
+export const getTenantById = id => async dispatch => {
+  dispatch({ type: GET_TENANT_ID_START });
+
+  try {
+    const res = await axiosAuth().get(`${baseUrl}/tenants/${id}`);
+    console.log(res.data);
+
+    dispatch({
+      type: GET_TENANT_ID_SUCCESS,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({ type: GET_TENANT_ID_FAIL, payload: { errMsg: err.message } });
+  }
+};
+// ------------------------------------------------|
+// EDIT TENANT ----------------------------------|
+export const editTenant = (id, tenant) => {
+  return async dispatch => {
+    dispatch({ type: EDIT_TENANT_START });
+
+    try {
+      await axiosAuth().put(`${baseUrl}/tenants/${id}`, tenant);
+
+      dispatch({
+        type: EDIT_TENANT_SUCCESS
+      });
+    } catch (err) {
+      dispatch({ type: EDIT_TENANT_FAIL, payload: { errMsg: err.message } });
+    }
+  };
+};
+// ------------------------------------------------|
+>>>>>>> 2307b2c89fba97d409e41f887c37b8c32ff46d68
 // ADD TENANT TO PROPERTY -------------------------|
 export const addTenant = url => tenant => async dispatch => {
   dispatch({ type: ADD_TENANT_START });
@@ -195,12 +278,41 @@ export const addTenant = url => tenant => async dispatch => {
   }
 };
 // ------------------------------------------------|
+<<<<<<< HEAD
 // USER ACTIONS ===================================|
+=======
+// GET TENANTS BY RESIDENCE ID --------------------|
+export const getTenantsByResidence = residenceId => {
+  return async dispatch => {
+    dispatch({ type: GET_TENANTS_RESIDENCE_START });
+
+    try {
+      const res = await axiosAuth().get(
+        `${baseUrl}/properties/${residenceId}/tenants`
+      );
+
+      console.log(res);
+
+      dispatch({
+        type: GET_TENANTS_RESIDENCE_SUCCESS,
+        payload: res.data
+      });
+    } catch (err) {
+      dispatch({
+        type: GET_TENANTS_RESIDENCE_FAIL,
+        payload: { errMsg: err.message }
+      });
+    }
+  };
+};
+// ------------------------------------------------|
+// USER CREATORS ==================================|
+>>>>>>> 2307b2c89fba97d409e41f887c37b8c32ff46d68
 // ================================================|
 
 // define your user actions here
 // ------------------------------------------------|
-export const getUserInfo = url => async dispatch => {
+export const getUserInfo = () => async dispatch => {
   dispatch({ type: GET_USER_START });
 
   try {
@@ -241,6 +353,10 @@ export const editUserInfo = user => async dispatch => {
 // WORD ORDER ACTIONS =============================|
 // ================================================|
 // ------------------------------------------------|
+// TODO: Resolve Unused Variables!
+// Disabled eslint for unused vars, assuming this needs
+// to be adjusted when the endpoint is available.
+// eslint-disable-next-line no-unused-vars
 export const getWorkOrders = property => async dispatch => {
   dispatch({ type: GET_WORK_ORDERS_START });
   try {
@@ -257,6 +373,7 @@ export const getWorkOrders = property => async dispatch => {
   }
 };
 // ------------------------------------------------|
+// eslint-disable-next-line no-unused-vars
 export const addWorkOrder = (property, workOrder) => async dispatch => {
   dispatch({ type: ADD_WORK_ORDER_START });
   try {
@@ -273,6 +390,7 @@ export const addWorkOrder = (property, workOrder) => async dispatch => {
   }
 };
 // ------------------------------------------------|
+// eslint-disable-next-line no-unused-vars
 export const updateWorkOrder = workOrder => async dispatch => {
   dispatch({ type: UPDATE_WORK_ORDER_START });
   try {

@@ -13,7 +13,23 @@ import {
   EDIT_PROPERTY_FAIL,
   ADD_TENANT_START,
   ADD_TENANT_SUCCESS,
+<<<<<<< HEAD
   ADD_TENANT_FAIL
+=======
+  ADD_TENANT_FAIL,
+  GET_TENANTS_RESIDENCE_START,
+  GET_TENANTS_RESIDENCE_SUCCESS,
+  GET_TENANTS_RESIDENCE_FAIL,
+  GET_TENANTS_START,
+  GET_TENANTS_SUCCESS,
+  GET_TENANTS_FAIL,
+  GET_TENANT_ID_START,
+  GET_TENANT_ID_SUCCESS,
+  GET_TENANT_ID_FAIL,
+  EDIT_TENANT_START,
+  EDIT_TENANT_SUCCESS,
+  EDIT_TENANT_FAIL
+>>>>>>> 2307b2c89fba97d409e41f887c37b8c32ff46d68
 } from '../actions/index';
 
 const properties = localStorage.getItem('properties');
@@ -21,6 +37,14 @@ const properties = localStorage.getItem('properties');
 const initialState = {
   properties: [],
   property: {},
+<<<<<<< HEAD
+=======
+  currentPropertyTenants: [],
+  tenants: [],
+  currentTenant: {},
+  isGettingTenants: false,
+  isGettingTenant: false,
+>>>>>>> 2307b2c89fba97d409e41f887c37b8c32ff46d68
   isAddingProp: false,
   isGettingProperties: true,
   isGettingProperty: false,
@@ -151,6 +175,105 @@ export default function propReducer(state = initialState, action) {
       };
     }
     // -------------------------------------|
+<<<<<<< HEAD
+=======
+    case GET_TENANTS_RESIDENCE_START: {
+      return {
+        ...state,
+        isGettingTenants: true,
+        errMsg: null,
+        currentPropertyTenants: []
+      };
+    }
+    case GET_TENANTS_RESIDENCE_SUCCESS: {
+      return {
+        ...state,
+        isGettingTenants: false,
+        errMsg: null,
+        currentPropertyTenants: action.payload
+      };
+    }
+    case GET_TENANTS_RESIDENCE_FAIL: {
+      return {
+        ...state,
+        isGettingTenants: false,
+        errMsg: action.payload.errMsg,
+        currentPropertyTenants: []
+      };
+    }
+    // GET_TENANTS -------------------------|
+    // -------------------------------------|
+    case GET_TENANTS_START: {
+      return {
+        ...state,
+        isGettingProperties: true,
+        errMsg: null
+      };
+    }
+    case GET_TENANTS_SUCCESS: {
+      return {
+        ...state,
+        isGettingProperties: false,
+        errMsg: null,
+        tenants: action.payload
+      };
+    }
+    case GET_TENANTS_FAIL: {
+      return {
+        ...state,
+        isGettingProperties: false,
+        errMsg: action.payload.errMsg
+      };
+    }
+    // GET_TENANT --------------------------|
+    // -------------------------------------|
+    case GET_TENANT_ID_START: {
+      return {
+        ...state,
+        isGettingTenant: true,
+        errMsg: null
+      };
+    }
+    case GET_TENANT_ID_SUCCESS: {
+      return {
+        ...state,
+        isGettingTenant: false,
+        currentTenant: action.payload,
+        errMsg: null
+      };
+    }
+    case GET_TENANT_ID_FAIL: {
+      return {
+        ...state,
+        isGettingTenant: false,
+        errMsg: action.payload.errMsg
+      };
+    }
+    // EDIT_TENANT --------------------------|
+    // -------------------------------------|
+    case EDIT_TENANT_START: {
+      return {
+        ...state,
+        isGettingTenant: true,
+        errMsg: null
+      };
+    }
+    case EDIT_TENANT_SUCCESS: {
+      return {
+        ...state,
+        isGettingTenant: false,
+        currentTenant: action.payload,
+        errMsg: null
+      };
+    }
+    case EDIT_TENANT_FAIL: {
+      return {
+        ...state,
+        isGettingTenant: false,
+        errMsg: action.payload.errMsg
+      };
+    }
+>>>>>>> 2307b2c89fba97d409e41f887c37b8c32ff46d68
     default:
       return state;
     // -------------------------------------|
