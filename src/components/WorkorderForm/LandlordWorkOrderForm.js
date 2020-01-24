@@ -63,7 +63,7 @@ export default function LandlordWorkOrderForm() {
       <Formik
         enableReinitialize
         validationSchema={validationSchema}
-        initalValues={{
+        initialValues={{
           title: '',
           property: '',
           description: '',
