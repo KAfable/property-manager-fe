@@ -13,9 +13,6 @@ import {
   EDIT_PROPERTY_FAIL,
   ADD_TENANT_START,
   ADD_TENANT_SUCCESS,
-<<<<<<< HEAD
-  ADD_TENANT_FAIL
-=======
   ADD_TENANT_FAIL,
   GET_TENANTS_RESIDENCE_START,
   GET_TENANTS_RESIDENCE_SUCCESS,
@@ -29,7 +26,6 @@ import {
   EDIT_TENANT_START,
   EDIT_TENANT_SUCCESS,
   EDIT_TENANT_FAIL
->>>>>>> 2307b2c89fba97d409e41f887c37b8c32ff46d68
 } from '../actions/index';
 
 const properties = localStorage.getItem('properties');
@@ -37,14 +33,11 @@ const properties = localStorage.getItem('properties');
 const initialState = {
   properties: [],
   property: {},
-<<<<<<< HEAD
-=======
   currentPropertyTenants: [],
   tenants: [],
   currentTenant: {},
   isGettingTenants: false,
   isGettingTenant: false,
->>>>>>> 2307b2c89fba97d409e41f887c37b8c32ff46d68
   isAddingProp: false,
   isGettingProperties: true,
   isGettingProperty: false,
@@ -175,8 +168,6 @@ export default function propReducer(state = initialState, action) {
       };
     }
     // -------------------------------------|
-<<<<<<< HEAD
-=======
     case GET_TENANTS_RESIDENCE_START: {
       return {
         ...state,
@@ -273,7 +264,6 @@ export default function propReducer(state = initialState, action) {
         errMsg: action.payload.errMsg
       };
     }
->>>>>>> 2307b2c89fba97d409e41f887c37b8c32ff46d68
     default:
       return state;
     // -------------------------------------|
