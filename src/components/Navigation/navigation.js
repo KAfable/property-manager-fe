@@ -27,7 +27,7 @@ export const HorNav = () => {
   const loginFn = useCallback(
     ({ email, password }) =>
       dispatch(login(email, password))
-        .then(() => dispatch(getUserInfo()).then(() => navigate('/dashboard')))
+        .then(() => navigate('/dashboard'))
         // eslint-disable-next-line no-console
         .catch(err => console.error(err)),
     [dispatch]
@@ -36,7 +36,7 @@ export const HorNav = () => {
   const signupFn = useCallback(
     ({ email, password, userType: type }) =>
       dispatch(signup(email, password, type))
-        .then(() => dispatch(getUserInfo()).then(() => navigate('/dashboard')))
+        .then(() => navigate('/dashboard'))
         // eslint-disable-next-line no-console
         .catch(err => console.error(err)),
     [dispatch]

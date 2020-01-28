@@ -4,7 +4,8 @@ import {
   GET_USER_FAIL,
   EDIT_USER_START,
   EDIT_USER_SUCCESS,
-  EDIT_USER_FAIL
+  EDIT_USER_FAIL,
+  AUTH_REQUEST_SUCCESS
 } from '../actions/index';
 
 const initialState = {
@@ -41,6 +42,13 @@ export default function getUserReducer(
         ...state,
         isLoading: false,
         errorMessage: action.payload.errMsg
+      };
+    }
+    case AUTH_REQUEST_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        user: action.payload.user
       };
     }
     case EDIT_USER_START: {

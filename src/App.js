@@ -33,8 +33,10 @@ const App = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getUserInfo());
-  }, [dispatch]);
+    if (token) {
+      dispatch(getUserInfo());
+    }
+  }, [dispatch, token]);
 
   return (
     <BreakpointProvider>
